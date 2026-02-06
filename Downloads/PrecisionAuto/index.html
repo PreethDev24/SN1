@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Precision Auto Keys - Mock</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Auto locksmith services" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">PRECISION <span>AUTO KEYS</span></div>
+  <nav class="main-nav" aria-label="Main Navigation">
+      <ul>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#reviews" class="nav-link">Reviews</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="phone-btn" href="#" aria-label="Call now">(209) 988-1911</a>
+  </header>
+  <script>
+
+    (function(){
+      const links = document.querySelectorAll('.nav-link');
+      const sections = {
+        home: document.getElementById('home'),
+        services: document.getElementById('services'),
+        about: document.getElementById('about'),
+        reviews: document.getElementById('reviews'),
+        contact: document.getElementById('contact')
+      };
+
+      function setActive(sectionKey){
+        links.forEach(a => {
+          if (a.getAttribute('href') === '#' + sectionKey) a.classList.add('active');
+          else a.classList.remove('active');
+        });
+      }
+
+      function onScroll(){
+        const scrollPos = window.scrollY + 120; // offset for fixed header
+        for (const key of Object.keys(sections)){
+          const el = sections[key];
+          if (!el) continue;
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height){
+            setActive(key);
+            return;
+          }
+        }
+        // fallback to home if nothing matched
+        setActive('home');
+      }
+
+      window.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
+    })();
+  </script>
+
+  <section class="hero" id="home">
+    <div class="container">
+      <p class="tagline">Mobile Automotive Locksmith • Modesto, CA</p>
+      <h1>LOST YOUR KEYS?<br>WE COME<br>TO YOU.</h1>
+      <p class="sub">Key cutting, programming, smart keys, emergency lockouts. We work on ALL vehicles — American, Asian, and European — including brands other shops won't touch. Skip the dealership. We bring the service to you.</p>
+      <div class="cta-row">
+        <a class="btn btn-yellow" href="#">CALL NOW</a>
+        <a class="btn btn-outline" href="#">VIEW SERVICES</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer moved to bottom -->
+
+  <section class="reviews" aria-label="Reviews" id="reviews">
+    <div class="container">
+      <h3 class="section-title" style="margin-top:40px;">REVIEWS</h3>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars" aria-label="rating">★★★★★</div>
+          <p class="quote">"My Mercedes smart key stopped working. Dealer wanted $400+ and a week wait. Precision Auto did it same day for way less. Key works perfect."</p>
+          <div class="author">Sarah K. — Turlock <span class="badge">SMART KEY</span></div>
+        </div>
+        <div class="review-card">
+          <div class="stars" aria-label="rating">★★★★★</div>
+          <p class="quote">"Lost my keys to my BMW. Quick, affordable service and no dealer bill. Highly recommend."</p>
+          <div class="author">Mike T. — Modesto <span class="badge">LOCKOUT</span></div>
+        </div>
+        <div class="review-card">
+          <div class="stars" aria-label="rating">★★★★★</div>
+          <p class="quote">"Great service for all makes & models. They came to my location and fixed my key in no time."</p>
+          <div class="author">Anna P. — Ceres <span class="badge">SMART KEY</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="section-models" id="services" style="padding-top:0">
+  <div class="container two-column-services" style="align-items:start;gap:40px;">
+    <div class="col left">
+      <h2 class="section-our-services" style="font-family:'Montserrat', sans-serif;font-weight:900;letter-spacing:2px;color:#fff;margin:0 0 12px;font-size:72px;">OUR SERVICES</h2>
+      <p class="sub" style="color:#b5b5b5;max-width:560px;font-size:18px;line-height:1.6;">Domestic, Asian, European — all years, all models. We work on vehicles other locksmiths in Modesto turn away.</p>
+    </div>
+    <div class="col right" style="width:100%">
+      <div class="service-card card" style="margin:0 0 18px;position:relative;">
+        <span class="card-index">01</span>
+        <div class="card-title" style="font-size:20px;letter-spacing:1px;color:#f0b40e;text-transform:uppercase">Mobile Service</div>
+        <div class="card-body" style="color:#cbd5e0">We come to you — home, work, parking lot, wherever you are in the Modesto area.</div>
+      </div>
+      <div class="service-card card" style="margin:0 0 18px;position:relative;">
+        <span class="card-index">02</span>
+        <div class="card-title" style="font-size:20px;letter-spacing:1px;color:#f0b40e;text-transform:uppercase">All Makes & Models</div>
+        <div class="card-body" style="color:#cbd5e0">Every year, every brand. Including European vehicles other shops turn away.</div>
+      </div>
+      <div class="service-card card" style="margin:0 0 18px;position:relative;">
+        <span class="card-index">03</span>
+        <div class="card-title" style="font-size:20px;letter-spacing:1px;color:#f0b40e;text-transform:uppercase">Honest Pricing</div>
+        <div class="card-body" style="color:#cbd5e0">Competitive local rates. We quote upfront — no hidden fees, no dealer markup.</div>
+      </div>
+      <div class="service-card card" style="margin:0 0 18px;position:relative;">
+        <span class="card-index">04</span>
+        <div class="card-title" style="font-size:20px;letter-spacing:1px;color:#f0b40e;text-transform:uppercase">Quality Workmanship</div>
+        <div class="card-body" style="color:#cbd5e0">Professional equipment and proper programming. Keys that work right the first time.</div>
+      </div>
+      <div class="service-card card" style="margin:0 0 18px;position:relative;">
+        <span class="card-index">05</span>
+        <div class="card-title" style="font-size:20px;letter-spacing:1px;color:#f0b40e;text-transform:uppercase">Emergency Lockouts</div>
+        <div class="card-body" style="color:#cbd5e0">Locked your keys in the car? We'll get you back in fast without damaging your vehicle. Call anytime.</div>
+      </div>
+      <div class="service-card card" style="margin:0 0 18px;position:relative;">
+        <span class="card-index">06</span>
+        <div class="card-title" style="font-size:20px;letter-spacing:1px;color:#f0b40e;text-transform:uppercase">Key Fob Replacement</div>
+        <div class="card-body" style="color:#cbd5e0">Remote key fobs, flip keys, and keyless entry remotes. We supply replacements at a fraction of dealer prices.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="content" id="about">
+    <div class="container two-column">
+      <div class="col left">
+      <h2 class="section-sub large">WHY MODESTO TRUSTS US</h2>
+        <p>Precision Auto is your trusted automotive locksmith and key specialist, proudly serving the Modesto community with fast, reliable, and affordable service. We work on ALL vehicles, American, Asian, and European, across ALL years and models.</p>
+      </div>
+      <div class="col right">
+        <div class="card">
+          <span class="card-index">01</span>
+          <div class="card-title">MOBILE SERVICE</div>
+          <div class="card-body">We come to you — home, work, parking lot, wherever you are in the Modesto area.</div>
+        </div>
+        <div class="card">
+          <span class="card-index">02</span>
+          <div class="card-title">ALL MAKES & MODELS</div>
+          <div class="card-body">Every year, every brand. Including European vehicles other shops turn away.</div>
+        </div>
+        <div class="card">
+          <span class="card-index">03</span>
+          <div class="card-title">HONEST PRICING</div>
+          <div class="card-body">Competitive local rates. We quote upfront — no hidden fees, dealer markup.</div>
+        </div>
+        <div class="card">
+          <span class="card-index">04</span>
+          <div class="card-title">QUALITY WORKMANSHIP</div>
+          <div class="card-body">Professional equipment and proper programming. Keys that work right the first time.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="get-in-touch" id="contact">
+    <div class="container two-column">
+      <div class="col left contact-copy">
+        <h2>GET IN TOUCH</h2>
+        <p>Need a key made? Locked out? Give us a call or fill out the form. Mobile service throughout Modesto and surrounding areas.</p>
+      </div>
+      <div class="col right">
+        <div class="contact-block callbox">
+          <div class="phone">CALL OR TEXT</div>
+          <div class="number">(209) 988-1911</div>
+        </div>
+        <form class="contact-form" onsubmit="return false;">
+          <div class="grid-2">
+            <input placeholder="Your name" required />
+            <input placeholder="(209) 988-1911" required />
+          </div>
+          <input placeholder="e.g. 2019 Toyota Camry" />
+          <select name="service" aria-label="Select a service" id="service-select">
+            <option value="" disabled selected>Select a service</option>
+            <option value="lockout">Lockout</option>
+            <option value="all-keys-lost">All Keys Lost</option>
+            <option value="key-copy-spare">Key Copy / Spare</option>
+            <option value="key-programming">Key Programming</option>
+            <option value="smart-key-push-start">Smart Key / Push-to-Start</option>
+            <option value="key-fob-replacement">Key Fob Replacement</option>
+            <option value="other">Other</option>
+          </select>
+          <textarea placeholder="Tell us what's going on..." rows="4"></textarea>
+          <button class="btn btn-yellow" type="submit">SEND REQUEST</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer" aria-label="Footer">
+    <div class="container footer-grid">
+      <div class="footer-col brand">
+        <div class="logo small">PRECISION <span>AUTO</span></div>
+        <p>Mobile automotive locksmith serving Modesto and surrounding areas. All makes & models.</p>
+        <p>☎ (209) 988-1911</p>
+        <p>✉ mr.shorty101@gmail.com</p>
+        <p>📍 Modesto, CA & Surrounding</p>
+      </div>
+      <div class="footer-col">
+        <h4>SERVICES</h4>
+        <ul class="footer-list">
+          <li>All Keys Lost</li>
+          <li>Key Copy / Spare</li>
+          <li>Key Programming</li>
+          <li>Smart Keys</li>
+          <li>Lockouts</li>
+          <li>Key Fobs</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>SERVICE AREAS</h4>
+        <ul class="footer-list">
+          <li>Modesto</li>
+          <li>Turlock</li>
+          <li>Ceres</li>
+          <li>Riverbank</li>
+          <li>Oakdale</li>
+          <li>& Surrounding</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;">
+        <span>© 2026 Precision Auto. All rights reserved.</span>
+        <span>American • Asian • European — All Makes & Models</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

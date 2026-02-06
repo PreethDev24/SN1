@@ -1,0 +1,287 @@
+:root{
+  --bg: #0b0b0b;
+  --panel: #141414;
+  --text: #e8e8e8;
+  --muted: #b5b5b5;
+  --accent: #f6b40e;
+}
+html { scroll-behavior: smooth; }
+/* Sticky footer layout: push footer to bottom when content is short */
+html, body { height: 100%; }
+body { display: flex; flex-direction: column; min-height: 100vh; }
+/* Offset for fixed header when navigating via anchor links */
+#services, #about, #reviews, #contact { scroll-margin-top: 90px; }
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:'Open Sans', Arial, sans-serif;background:#0b0b0b;color:var(--text)}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.site-header{position:fixed;top:0;left:0;right:0;height:72px;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:space-between;padding:0 24px;z-index:999;border-bottom:1px solid #333}
+.logo{font-family:'Montserrat', sans-serif;font-weight:800;letter-spacing:1px;color:#f0b40e}
+.logo span{color:#fff;margin-left:8px;font-weight:700}
+.main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:26px;align-items:center;}
+.nav-link{color:#bbb;text-decoration:none; text-transform:uppercase; letter-spacing:2px; font-family:'Montserrat', sans-serif; font-weight:700; padding:14px 6px; display:inline-block;}
+.nav-link:hover,.nav-link:focus{color:#fff;}
+.nav-link.active{color:#f6b40e}
+.section-sub.large{font-family:'Montserrat', sans-serif;font-weight:900;font-size:88px;line-height:0.95;margin:0 0 8px;letter-spacing:-1px;color:#fff}
+.phone-btn{background:#f0b40e;color:#000;padding:12px 20px;border-radius:4px;text-decoration:none;font-weight:700}
+.hero{padding-top:100px;background:#111 url('') center/cover no-repeat;min-height:520px}
+.hero{position:relative}
+.hero .tagline{color:#f0b40e;text-transform:uppercase;letter-spacing:2px;font-size:14px;margin:0 0 12px;border-left:3px solid #f0b40e;padding-left:10px}
+.hero h1{font-family:'Montserrat', sans-serif;font-weight:900;font-size:110px;line-height:0.95;margin:0 0 16px;letter-spacing:-2px}
+.hero .sub{color:#bbb;font-size:20px;max-width:760px}
+.cta-row{display:flex;gap:18px;margin-top:28px}
+.btn{display:inline-block;padding:16px 26px;border-radius:4px;text-decoration:none;font-weight:700;text-transform:uppercase;letter-spacing:0.5px}
+.btn-yellow{background:var(--accent);color:#000}
+.btn-outline{background:transparent;border:1px solid #555;color:#ddd}
+.section-models{padding:28px 0;border-top:1px solid #2b2b2b;background:#111}
+.section-our-services{font-family:'Montserrat', sans-serif}
+.two-column-services{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;padding:40px 0}
+.section-our-services{color:#fff;margin-bottom:8px}
+.service-card.card{background:#1d1d1d;border:1px solid #333;border-radius:4px;padding:18px 18px 18px 60px;position:relative}
+.service-card .card-index{position:absolute;left:12px;top:16px;font-weight:800;color:#f0b40e}
+.service-card .card-title{font-weight:800;letter-spacing:1px;color:#fff;text-transform:uppercase}
+.service-card .card-body{color:#cbd5e0}
+.section-title{font-family:'Montserrat', sans-serif;font-weight:800;letter-spacing:2px;color:#ddd;font-size:14px;margin:0 0 14px}
+.chip-row{display:flex;flex-wrap:wrap;gap:12px}
+.chip{background:#2a2a2a;border:1px solid #444;border-radius:6px;padding:12px 14px;color:#ddd}
+.section-models .subline{color:#bbb;margin-top:14px}
+.content{padding:40px 0;border-top:1px solid #333;background:#0b0b0b}
+.two-column{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.section-sub{font-family:'Montserrat', sans-serif;font-weight:800;letter-spacing:2px;color:#fff;margin:0 0 8px;font-size:28px}
+.col.left{padding-top:8px}
+.card{background:#1d1d1d;border:1px solid #333;border-radius:4px;padding:18px 18px 18px 60px;margin-bottom:18px;position:relative}
+.card-title{font-weight:800;letter-spacing:1px;color:#f0b40e;margin-bottom:6px}
+.card-body{color:#cbd5e0}
+.card-index{position:absolute;left:16px;top:12px;font-weight:900;color:#f0b40e}
+.get-in-touch{padding:40px 0;background:#0b0b0b;border-top:1px solid #333}
+.get-in-touch h2{font-family:'Montserrat', sans-serif;font-weight:800;letter-spacing:2px;color:#fff;margin:0 0 12px;font-size:28px}
+.contact-copy{padding-right:20px}
+.contact-block{background:#1e1e1e;border:1px solid #333;padding:18px;border-radius:6px;margin:0 0 14px}
+.contact-block .phone{color:#bbb;font-size:12px;text-transform:uppercase;margin-bottom:6px}
+.contact-block .number{font-size:28px;font-weight:800}
+.contact-form{display:flex;flex-direction:column;gap:12px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.contact-form input,.contact-form textarea,.contact-form select{background:#141414;border:1px solid #333;color:#ddd;padding:14px;border-radius:6px}
+.contact-form textarea{resize:vertical}
+.grid-2 input{min-height:46px}
+.contact-form button{width:100%;}
+.section-models,.get-in-touch{color:#ddd}
+/* Reviews section styling */
+.reviews{padding:40px 0;background:#0b0b0b;border-top:1px solid #333}
+.reviews .section-title{margin-bottom:12px}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.review-card{background:#1a1a1a;border:1px solid #333;border-radius:6px;padding:16px}
+.stars{color:#f6c513;font-size:20px;margin-bottom:6px}
+.review-card .quote{color:#d6dde6;font-size:15px;line-height:1.5;margin:6px 0 12px;font-family:'Open Sans', sans-serif}
+.review-card .author{font-weight:700;color:#ddd}
+.review-card .badge{float:right;background:#2a2a2a;color:#ddd;padding:4px 8px;border-radius:4px;font-size:11px;text-transform:uppercase}
+@media (max-width: 900px){
+  .hero h1{font-size:72px}
+  .section-sub.large{font-size:48px}
+  .two-column{grid-template-columns:1fr}
+  .main-nav{display:none}
+  .reviews-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 600px){
+  .reviews-grid{grid-template-columns:1fr}
+}
+
+/* Footer styling */
+.site-footer{background:#111;border-top:1px solid #333;margin-top:40px;color:#bbb}
+/* Ensure footer sticks to bottom when content is short */
+.site-footer{ margin-top: auto; }
+.site-footer .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding:40px 24px 20px}
+.site-footer .footer-col h4{color:#ddd;font-family:'Montserrat',sans-serif;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;font-size:14px}
+.site-footer .footer-col ul{list-style:none;padding:0;margin:0}
+.site-footer .footer-col li{margin:6px 0}
+.site-footer .logo.small{color:#f0b40e;font-family:'Montserrat',sans-serif;font-weight:800}
+.site-footer .brand p{color:#bbb;margin:6px 0}
+.site-footer .footer-bottom{border-top:1px solid #333;padding:14px 0;margin-top:12px}
+.site-footer .footer-bottom .container{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+
+/* ========================================
+   ADMIN PAGE STYLES
+   ======================================== */
+.admin-body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0b0b0b 0%, #1a1a1a 100%);
+}
+
+.admin-container {
+  width: 100%;
+  max-width: 480px;
+  padding: 24px;
+}
+
+.admin-card {
+  background: linear-gradient(145deg, #1d1d1d, #141414);
+  border: 1px solid #333;
+  border-radius: 16px;
+  padding: 48px 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.admin-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #f0b40e;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.admin-logo span {
+  color: #fff;
+  margin-left: 8px;
+  font-weight: 700;
+}
+
+.admin-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 8px;
+}
+
+.admin-subtitle {
+  color: #888;
+  text-align: center;
+  margin: 0 0 32px;
+  font-size: 14px;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-form input {
+  background: #0b0b0b;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 16px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-form input:focus {
+  outline: none;
+  border-color: #f0b40e;
+  box-shadow: 0 0 0 3px rgba(240, 180, 14, 0.15);
+}
+
+.admin-form input::placeholder {
+  color: #666;
+}
+
+.admin-form .btn {
+  margin-top: 8px;
+  padding: 18px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-form .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(240, 180, 14, 0.3);
+}
+
+.admin-error {
+  color: #ff6b6b;
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+  min-height: 20px;
+}
+
+/* Dashboard Styles */
+.admin-dashboard {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: #141414;
+  border: 1px solid #333;
+  border-radius: 12px;
+  margin-bottom: 32px;
+}
+
+.dashboard-user {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dashboard-user span {
+  color: #888;
+  font-size: 14px;
+}
+
+.dashboard-main h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+.dashboard-main > p {
+  color: #888;
+  margin: 0 0 32px;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.dashboard-cards .card {
+  margin-bottom: 0;
+  padding: 24px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.dashboard-cards .card:hover {
+  transform: translateY(-4px);
+  border-color: #f0b40e;
+}
+
+.dashboard-cards .card-index {
+  position: static;
+  font-size: 28px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+  .admin-card {
+    padding: 32px 24px;
+  }
+  
+  .admin-title {
+    font-size: 24px;
+  }
+  
+  .dashboard-header {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login - Precision Auto Keys</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body class="admin-body">
+
+    <div class="admin-container">
+        <!-- Login Section -->
+        <div id="login-section" class="admin-card">
+            <div class="admin-logo">PRECISION <span>AUTO KEYS</span></div>
+            <h1 class="admin-title">Employee Login</h1>
+            <p class="admin-subtitle">Access the admin dashboard</p>
+
+            <form id="login-form" class="admin-form">
+                <input type="email" id="email" placeholder="Email address" required />
+                <input type="password" id="password" placeholder="Password" required />
+                <button type="submit" class="btn btn-yellow">SIGN IN</button>
+            </form>
+
+            <p id="login-error" class="admin-error"></p>
+        </div>
+
+        <!-- Dashboard Section (Hidden by default) -->
+        <div id="dashboard-section" class="admin-dashboard" style="display: none;">
+            <header class="dashboard-header">
+                <div class="admin-logo">PRECISION <span>AUTO KEYS</span></div>
+                <div class="dashboard-user">
+                    <span id="user-email"></span>
+                    <button id="logout-btn" class="btn btn-outline">Sign Out</button>
+                </div>
+            </header>
+
+            <main class="dashboard-main">
+                <h1>Welcome to the Admin Dashboard</h1>
+                <p>You are logged in as an employee. This area can be expanded with admin features.</p>
+
+                <div class="dashboard-cards">
+                    <div class="card">
+                        <span class="card-index">📞</span>
+                        <div class="card-title">Customer Requests</div>
+                        <div class="card-body">View and manage incoming service requests.</div>
+                    </div>
+                    <div class="card">
+                        <span class="card-index">📅</span>
+                        <div class="card-title">Schedule</div>
+                        <div class="card-body">Manage your appointments and availability.</div>
+                    </div>
+                    <div class="card">
+                        <span class="card-index">📊</span>
+                        <div class="card-title">Reports</div>
+                        <div class="card-body">View business analytics and reports.</div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // ============================================================
+        // SUPABASE CONFIGURATION
+        // Replace these with your actual Supabase project credentials
+        // ============================================================
+        const SUPABASE_URL = 'https://hyhriurspetpekrhebsf.supabase.co';       // e.g., 'https://xyzcompany.supabase.co'
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh5aHJpdXJzcGV0cGVrcmhlYnNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAzNTQzNTgsImV4cCI6MjA4NTkzMDM1OH0.oKnL75T4JeJ4ieJrrnswOl4GcfxnxBdJLe64SmgjtLg';
+
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // DOM Elements
+        const loginSection = document.getElementById('login-section');
+        const dashboardSection = document.getElementById('dashboard-section');
+        const loginForm = document.getElementById('login-form');
+        const loginError = document.getElementById('login-error');
+        const userEmailSpan = document.getElementById('user-email');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        // Check session on page load
+        async function checkSession() {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (session) {
+                showDashboard(session.user);
+            } else {
+                showLogin();
+            }
+        }
+
+        function showLogin() {
+            loginSection.style.display = 'block';
+            dashboardSection.style.display = 'none';
+        }
+
+        function showDashboard(user) {
+            loginSection.style.display = 'none';
+            dashboardSection.style.display = 'block';
+            userEmailSpan.textContent = user.email;
+        }
+
+        // Handle Login
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            loginError.textContent = '';
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email,
+                password
+            });
+
+            if (error) {
+                loginError.textContent = error.message;
+            } else {
+                showDashboard(data.user);
+            }
+        });
+
+        // Handle Logout
+        logoutBtn.addEventListener('click', async () => {
+            await supabase.auth.signOut();
+            showLogin();
+        });
+
+        // Listen for auth state changes
+        supabase.auth.onAuthStateChange((event, session) => {
+            if (session) {
+                showDashboard(session.user);
+            } else {
+                showLogin();
+            }
+        });
+
+        // Initialize
+        checkSession();
+    </script>
+
+</body>
+
+</html>
