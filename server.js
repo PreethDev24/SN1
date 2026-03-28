@@ -109,6 +109,10 @@ function uploadContractMiddleware(req, res, next) {
 
 app.use(cors());
 app.use(express.json());
+const PUBLIC_ROOT = path.join(STATIC_ROOT, 'public');
+if (fs.existsSync(PUBLIC_ROOT)) {
+  app.use(express.static(PUBLIC_ROOT));
+}
 app.use(express.static(STATIC_ROOT));
 
 app.get('/api/config', (req, res) => {

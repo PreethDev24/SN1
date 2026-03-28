@@ -51,7 +51,8 @@ Replace `YOUR_USER/YOUR_REPO` with your account and repository name.
 
 ## Project layout
 
-- Static pages and assets at the repo root (`index.html`, `styles.css`, `assets/`, etc.)
-- `server.js` — Express app (API + `express.static` for the same files)
+- HTML pages at the repo root (`index.html`, `blog.html`, etc.)
+- **`public/`** — CSS, images, and other static files served at `/` (required so Vercel includes them with the serverless bundle via `includeFiles`)
+- `server.js` — Express app (API + static: `public/` first, then repo root)
 - `api/index.js` — Vercel serverless entry; re-exports the Express app
 - `lib/store.js` — file or KV persistence for contracts / signatures
