@@ -11,19 +11,36 @@ const store = require('./lib/store');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+/** Vercel lambdas use a read-only filesystem; mkdir/write outside /tmp throws at boot. */
+const IS_VERCEL = process.env.VERCEL === '1';
+
 const UPLOADS_DIR = path.join(__dirname, 'uploads', 'contracts');
 
 function ensureLocalUploadsDir() {
-  if (!store.useRedis() && !fs.existsSync(UPLOADS_DIR)) {
+  if (IS_VERCEL || store.useRedis()) return;
+  if (!fs.existsSync(UPLOADS_DIR)) {
     fs.mkdirSync(UPLOADS_DIR, { recursive: true });
   }
 }
 
 const DATA_DIR = path.join(__dirname, 'data');
-if (!store.useRedis() && !fs.existsSync(DATA_DIR)) {
+if (!IS_VERCEL && !store.useRedis() && !fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
 }
 ensureLocalUploadsDir();
+
+function findStaticRoot() {
+  let dir = __dirname;
+  for (let i = 0; i < 8; i++) {
+    if (fs.existsSync(path.join(dir, 'index.html'))) return dir;
+    const parent = path.dirname(dir);
+    if (parent === dir) break;
+    dir = parent;
+  }
+  return __dirname;
+}
+
+const STATIC_ROOT = findStaticRoot();
 
 function contractPublicUrl(contract) {
   if (!contract || !contract.path) return null;
@@ -92,7 +109,7 @@ function uploadContractMiddleware(req, res, next) {
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(__dirname));
+app.use(express.static(STATIC_ROOT));
 
 app.get('/api/config', (req, res) => {
   const clerkPublishableKey = process.env.CLERK_PUBLISHABLE_KEY ||

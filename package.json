@@ -13,7 +13,7 @@
   "license": "ISC",
   "type": "commonjs",
   "engines": {
-    "node": ">=20.x"
+    "node": "20.x"
   },
   "dependencies": {
     "@clerk/backend": "^3.2.2",
