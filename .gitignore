@@ -1,0 +1,11 @@
+.cursor/
+node_modules/
+.env
+.env.local
+.env.*.local
+data/
+uploads/
+.vercel
+*.log
+.DS_Store
+Thumbs.db

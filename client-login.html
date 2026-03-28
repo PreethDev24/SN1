@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Login — SN Web Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .client-login-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: var(--bg);
+    }
+    .client-login-card {
+      width: 100%;
+      max-width: 420px;
+      padding: 48px 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    .client-login-card h1 {
+      margin: 0 0 8px;
+      font-family: var(--serif);
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--text);
+    }
+    .client-login-card p {
+      margin: 0 0 32px;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+    }
+    #clerk-sign-in {
+      display: flex;
+      justify-content: center;
+      min-height: 320px;
+    }
+    .client-login-back {
+      display: inline-block;
+      margin-top: 24px;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .client-login-back:hover {
+      color: var(--accent);
+    }
+    .client-login-loading {
+      color: var(--text-muted);
+      font-size: 0.9375rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="client-login-page">
+    <div class="client-login-card">
+      <a href="index.html" class="logo" style="margin-bottom: 24px; display: inline-block;">
+        <img src="assets/logo.png" alt="SN Web Design" />
+      </a>
+      <h1>Client Login</h1>
+      <p>Sign in to access your project dashboard, invoices, and assets.</p>
+      <div id="clerk-sign-in">
+        <p class="client-login-loading">Loading sign-in…</p>
+      </div>
+      <a href="index.html" class="client-login-back">← Back to Home</a>
+    </div>
+  </div>
+
+  <script>
+    (async function() {
+      const container = document.getElementById('clerk-sign-in');
+      try {
+        const res = await fetch('/api/config');
+        const { clerkPublishableKey, clerkFrontendApi } = await res.json();
+        if (!clerkPublishableKey) {
+          container.innerHTML = '<p class="client-login-loading">Clerk is not configured. Add CLERK_PUBLISHABLE_KEY to your .env file.</p>';
+          return;
+        }
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        script.setAttribute('data-clerk-publishable-key', clerkPublishableKey);
+        script.src = clerkFrontendApi
+          ? 'https://' + clerkFrontendApi.replace(/^https?:\/\//, '') + '/npm/@clerk/clerk-js@5/dist/clerk.browser.js'
+          : 'https://clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js';
+        script.type = 'text/javascript';
+        document.head.appendChild(script);
+
+        script.onload = async function() {
+          await window.Clerk.load();
+          if (window.Clerk.isSignedIn) {
+            const hasCompletedOnboarding = localStorage.getItem('sn_client_onboarding_complete');
+            window.location.href = hasCompletedOnboarding ? 'client-dashboard.html' : 'client-onboarding.html';
+            return;
+          }
+          container.innerHTML = '<div id="clerk-mount"></div>';
+          window.Clerk.mountSignIn(document.getElementById('clerk-mount'), {
+            signUpForceRedirectUrl: 'client-onboarding.html',
+            signUpFallbackRedirectUrl: 'client-onboarding.html',
+            fallbackRedirectUrl: 'client-login.html',
+            forceRedirectUrl: 'client-login.html'
+          });
+          window.Clerk.addListener(function(e) {
+            if (e.session) {
+              const hasCompletedOnboarding = localStorage.getItem('sn_client_onboarding_complete');
+              window.location.href = hasCompletedOnboarding ? 'client-dashboard.html' : 'client-onboarding.html';
+            }
+          });
+        };
+      } catch (err) {
+        console.error(err);
+        container.innerHTML = '<p class="client-login-loading">Unable to load sign-in. Please try again.</p>';
+      }
+    })();
+  </script>
+</body>
+</html>

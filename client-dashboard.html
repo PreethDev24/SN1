@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Dashboard — SN Web Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .dashboard-page {
+      min-height: 100vh;
+      background: var(--bg);
+    }
+    .dashboard-header {
+      padding: 32px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .dashboard-header h1 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--text);
+    }
+    .dashboard-main {
+      padding: 48px 24px 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .dashboard-card {
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      transition: border-color 0.2s;
+    }
+    .dashboard-card:hover {
+      border-color: rgba(201, 162, 39, 0.35);
+    }
+    .dashboard-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .dashboard-card p {
+      margin: 0 0 20px;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .dashboard-card .btn {
+      display: inline-block;
+    }
+    .dashboard-loading {
+      text-align: center;
+      padding: 80px 24px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-page">
+    <header class="dashboard-header">
+      <div>
+        <a href="index.html" class="logo" style="display: inline-block; margin-bottom: 8px;">
+          <img src="assets/logo.png" alt="SN Web Design" />
+        </a>
+        <h1>Client Dashboard</h1>
+      </div>
+      <div id="user-badge" style="display: none;"></div>
+    </header>
+
+    <div id="dashboard-content" style="display: none;">
+      <main class="dashboard-main">
+        <div class="dashboard-grid">
+          <div class="dashboard-card">
+            <h3>Invoices & Payments</h3>
+            <p>View your invoices, payment history, and update billing information.</p>
+            <a href="#" class="btn btn-primary">View Invoices</a>
+          </div>
+          <div class="dashboard-card">
+            <h3>Your Contract</h3>
+            <p>View your service agreement and signed documents.</p>
+            <a href="client-contract.html" class="btn btn-primary">View Contract</a>
+          </div>
+          <div class="dashboard-card">
+            <h3>Project Assets</h3>
+            <p>Design files, source code, credentials, and deliverables.</p>
+            <a href="#" class="btn btn-primary">Access Assets</a>
+          </div>
+          <div class="dashboard-card">
+            <h3>Support</h3>
+            <p>Need help? Reach out for project updates or technical support.</p>
+            <a href="start.html" class="btn btn-primary">Contact Us</a>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div id="dashboard-loading" class="dashboard-loading">
+      <p>Loading dashboard…</p>
+    </div>
+  </div>
+
+  <script>
+    (async function() {
+      const loadingEl = document.getElementById('dashboard-loading');
+      const contentEl = document.getElementById('dashboard-content');
+
+      try {
+        const res = await fetch('/api/config');
+        const { clerkPublishableKey, clerkFrontendApi } = await res.json();
+        if (!clerkPublishableKey) {
+          loadingEl.innerHTML = '<p>Clerk is not configured. <a href="client-login.html">Go to login</a></p>';
+          return;
+        }
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        script.setAttribute('data-clerk-publishable-key', clerkPublishableKey);
+        script.src = clerkFrontendApi
+          ? 'https://' + clerkFrontendApi.replace(/^https?:\/\//, '') + '/npm/@clerk/clerk-js@5/dist/clerk.browser.js'
+          : 'https://clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js';
+        script.type = 'text/javascript';
+        document.head.appendChild(script);
+
+        await new Promise(function(resolve) { script.onload = resolve; });
+
+        await window.Clerk.load();
+        if (!window.Clerk.isSignedIn) {
+          window.location.href = 'client-login.html?redirect=client-dashboard.html';
+          return;
+        }
+
+        loadingEl.style.display = 'none';
+        contentEl.style.display = 'block';
+
+        const userButtonDiv = document.getElementById('user-badge');
+        userButtonDiv.style.display = 'block';
+        window.Clerk.mountUserButton(userButtonDiv);
+      } catch (err) {
+        console.error(err);
+        loadingEl.innerHTML = '<p>Unable to load. <a href="client-login.html">Try logging in again</a>.</p>';
+      }
+    })();
+  </script>
+</body>
+</html>

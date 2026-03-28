@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Start Your Project – SN Web Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="step-page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <nav class="nav header-nav-left">
+        <a href="index.html#who-we-are">Who We Are</a>
+        <a href="index.html#philosophy">Our Approach</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#why-us">Why Us</a>
+      </nav>
+      <a href="index.html" class="logo" aria-label="SN Web Design — Home">
+        <img src="assets/logo.png" alt="SN Web Design" />
+      </a>
+      <div class="header-actions">
+        <a href="portfolio.html" class="nav-link-header">Portfolio</a>
+        <a href="client-login.html" class="nav-link-header">Client Login</a>
+        <a href="start.html" class="btn btn-primary">Start Your Project</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="step-main">
+    <section class="section">
+      <div class="container">
+        <div class="step-card">
+          <p class="section-tagline">Start your project</p>
+          <h1 class="section-heading">First, what&rsquo;s your name?</h1>
+          <p class="step-intro">
+            We&rsquo;ll use your name to personalize the next step of the brief.
+          </p>
+          <form id="name-step-form" class="step-form">
+            <label class="field">
+              <span class="field-label">Your name</span>
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <button type="submit" class="btn btn-primary btn-lg">
+              Continue
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="index.html" class="logo logo-footer" aria-label="SN Web Design — Home">
+        <img src="assets/logo.png" alt="SN Web Design" />
+      </a>
+      <p class="footer-tagline">Web Design — Digital experiences that engage, convert, and endure.</p>
+      <nav class="footer-nav">
+        <a href="index.html#who-we-are">Who We Are</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </div>
+    <div class="container footer-copyright">
+      <p>&copy; 2026 SN Web Design. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const form = document.getElementById('name-step-form');
+      if (!form) return;
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const nameInput = form.elements['name'];
+        const name = (nameInput && nameInput.value || '').trim();
+        if (!name) {
+          nameInput && nameInput.focus();
+          return;
+        }
+
+        // Store name for the next step
+        try {
+          window.sessionStorage.setItem('sn_project_name', name);
+        } catch (e) {
+          // ignore storage errors, still continue
+        }
+
+        window.location.href = 'project-brief.html';
+      });
+    })();
+  </script>
+</body>
+</html>
+

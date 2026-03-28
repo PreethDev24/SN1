@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Slow websites lose visitors. Learn how to improve page load times and keep your audience engaged." />
+  <title>Website Performance: Speed Optimization Tips — SN Web Design Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <nav class="nav header-nav-left">
+        <a href="index.html#who-we-are">Who We Are</a>
+        <a href="index.html#philosophy">Our Approach</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#why-us">Why Us</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+      <a href="index.html" class="logo" aria-label="SN Web Design — Home">
+        <img src="assets/logo.png" alt="SN Web Design" />
+      </a>
+      <div class="header-actions">
+        <a href="portfolio.html" class="nav-link-header">Portfolio</a>
+        <a href="client-login.html" class="nav-link-header">Client Login</a>
+        <a href="start.html" class="btn btn-primary">Start Your Project</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article class="blog-post">
+      <div class="container">
+        <div class="blog-post-header">
+          <a href="blog.html" class="blog-back-link">← Back to Blog</a>
+          <time class="blog-date" datetime="2026-01-10">January 10, 2026</time>
+          <h1 class="blog-post-title">Website Performance: Speed Optimization Tips</h1>
+          <p class="blog-post-subtitle">Slow websites lose visitors. Learn how to improve page load times and keep your audience engaged.</p>
+        </div>
+
+        <div class="blog-post-content prose">
+          <p>Website speed isn't just a technical metric—it's a critical factor in user experience, search rankings, and conversions. Research shows that 53% of mobile site visits are abandoned if pages take longer than 3 seconds to load. Every second counts.</p>
+
+          <h2>Why Speed Matters</h2>
+          <p>The impact of slow websites is measurable:</p>
+          <ul>
+            <li>1-second delay can reduce conversions by 7%</li>
+            <li>Slow sites rank lower in Google search results</li>
+            <li>Users expect pages to load in 2 seconds or less</li>
+            <li>Mobile users are even less patient than desktop users</li>
+            <li>Page speed affects bounce rates and time on site</li>
+          </ul>
+
+          <h2>Image Optimization</h2>
+          <p>Images are often the largest files on a webpage. Optimize them:</p>
+          <p><strong>Choose the Right Format:</strong></p>
+          <ul>
+            <li><strong>WebP:</strong> Modern format offering 25-35% better compression than JPEG</li>
+            <li><strong>JPEG:</strong> Best for photos with many colors</li>
+            <li><strong>PNG:</strong> Use for images with transparency or simple graphics</li>
+            <li><strong>SVG:</strong> Perfect for logos and simple illustrations</li>
+          </ul>
+          <p><strong>Compress Images:</strong> Use tools like TinyPNG, ImageOptim, or Squoosh to reduce file sizes without noticeable quality loss.</p>
+          <p><strong>Lazy Loading:</strong> Load images only when they're about to enter the viewport. This speeds up initial page load.</p>
+          <p><strong>Responsive Images:</strong> Serve appropriately sized images for different screen sizes using srcset.</p>
+
+          <h2>Code Optimization</h2>
+          <p>Clean, efficient code loads faster:</p>
+          <p><strong>Minify CSS and JavaScript:</strong> Remove whitespace, comments, and unnecessary characters. Use tools like UglifyJS or CSSNano.</p>
+          <p><strong>Remove Unused Code:</strong> Delete unused CSS, JavaScript libraries, and plugins. Every line of code adds to load time.</p>
+          <p><strong>Code Splitting:</strong> Load only the JavaScript needed for the current page, not your entire application.</p>
+          <p><strong>Inline Critical CSS:</strong> Include above-the-fold styles directly in the HTML to prevent render-blocking.</p>
+
+          <h2>Caching Strategies</h2>
+          <p>Caching stores frequently accessed data to reduce load times:</p>
+          <p><strong>Browser Caching:</strong> Set appropriate cache headers so browsers store static assets locally.</p>
+          <p><strong>Server-Side Caching:</strong> Use caching plugins or server configurations to cache HTML pages.</p>
+          <p><strong>CDN (Content Delivery Network):</strong> Serve static assets from servers closer to your users. Popular options include Cloudflare, CloudFront, or BunnyCDN.</p>
+          <p><strong>Object Caching:</strong> Cache database queries and API responses when possible.</p>
+
+          <h2>Hosting and Server Performance</h2>
+          <p>Your hosting choice directly impacts speed:</p>
+          <ul>
+            <li><strong>Choose Quality Hosting:</strong> Don't skimp on hosting. Shared hosting can be slow during traffic spikes.</li>
+            <li><strong>Consider VPS or Dedicated:</strong> For high-traffic sites, dedicated resources improve performance.</li>
+            <li><strong>Server Location:</strong> Host closer to your primary audience for faster response times.</li>
+            <li><strong>HTTP/2:</strong> Ensure your server supports HTTP/2 for faster, multiplexed connections.</li>
+          </ul>
+
+          <h2>Reduce HTTP Requests</h2>
+          <p>Each file requires a separate HTTP request. Reduce them:</p>
+          <ul>
+            <li>Combine multiple CSS files into one</li>
+            <li>Combine multiple JavaScript files</li>
+            <li>Use CSS sprites for small icons</li>
+            <li>Limit external scripts and plugins</li>
+            <li>Remove unnecessary third-party scripts</li>
+          </ul>
+
+          <h2>Database Optimization</h2>
+          <p>If your site uses a database:</p>
+          <ul>
+            <li>Optimize database queries</li>
+            <li>Remove unused plugins and tables</li>
+            <li>Use database indexing</li>
+            <li>Clean up old data regularly</li>
+            <li>Consider object caching for database queries</li>
+          </ul>
+
+          <h2>Mobile Performance</h2>
+          <p>Mobile users often have slower connections:</p>
+          <ul>
+            <li>Prioritize mobile optimization</li>
+            <li>Use Accelerated Mobile Pages (AMP) if appropriate</li>
+            <li>Reduce mobile-specific assets</li>
+            <li>Test on actual mobile devices and slow networks</li>
+            <li>Consider Progressive Web App (PWA) features</li>
+          </ul>
+
+          <h2>Monitoring and Testing</h2>
+          <p>Regularly check your site's performance:</p>
+          <p><strong>Tools to Use:</strong></p>
+          <ul>
+            <li><strong>Google PageSpeed Insights:</strong> Scores your site and provides specific recommendations</li>
+            <li><strong>GTmetrix:</strong> Detailed performance reports with waterfall charts</li>
+            <li><strong>WebPageTest:</strong> Test from multiple locations and devices</li>
+            <li><strong>Chrome DevTools:</strong> Built-in performance profiling</li>
+            <li><strong>Google Analytics:</strong> Track real user performance metrics</li>
+          </ul>
+
+          <h2>Quick Wins</h2>
+          <p>Start with these high-impact, low-effort optimizations:</p>
+          <ol>
+            <li>Enable browser caching</li>
+            <li>Compress and optimize images</li>
+            <li>Minify CSS and JavaScript</li>
+            <li>Enable GZIP compression</li>
+            <li>Remove unused plugins and scripts</li>
+            <li>Use a CDN for static assets</li>
+            <li>Implement lazy loading for images</li>
+          </ol>
+
+          <h2>The Bottom Line</h2>
+          <p>Website speed is an ongoing process, not a one-time fix. Regular monitoring and optimization ensure your site stays fast as you add content and features.</p>
+          <p>Remember: even small improvements can have significant impacts. A 1-second improvement in load time can increase conversions by 7%.</p>
+          <p>Need help optimizing your site's performance? <a href="start.html">SN Web Design</a> offers comprehensive website audits and speed optimization services. Let's make your site lightning-fast.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="index.html" class="logo logo-footer" aria-label="SN Web Design — Home">
+        <img src="assets/logo.png" alt="SN Web Design" />
+      </a>
+      <p class="footer-tagline">Web Design — Digital experiences that engage, convert, and endure.</p>
+      <nav class="footer-nav">
+        <a href="index.html#who-we-are">Who We Are</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </div>
+    <div class="container footer-copyright">
+      <p>&copy; 2026 SN Web Design. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

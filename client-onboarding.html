@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Onboarding — SN Web Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .onboarding-page {
+      min-height: 100vh;
+      background: var(--bg);
+      padding: 48px 24px 80px;
+    }
+    .onboarding-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .onboarding-header h1 {
+      margin: 0 0 8px;
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--text);
+    }
+    .onboarding-header p {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+    .onboarding-steps {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 40px;
+    }
+    .onboarding-step-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: background 0.2s;
+    }
+    .onboarding-step-dot.active {
+      background: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+    .onboarding-step-dot.completed {
+      background: var(--accent);
+    }
+    .onboarding-card {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 48px 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+    }
+    .onboarding-card h2 {
+      margin: 0 0 8px;
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--text);
+    }
+    .onboarding-card .step-desc {
+      margin: 0 0 32px;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .onboarding-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .onboarding-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 32px;
+      gap: 16px;
+    }
+    .onboarding-actions .btn-secondary {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+    .onboarding-actions .btn-secondary:hover {
+      background: var(--bg-alt);
+      color: var(--text);
+    }
+    .onboarding-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .onboarding-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+    }
+    .onboarding-checklist li:last-child {
+      margin-bottom: 0;
+    }
+    .onboarding-checklist input[type="checkbox"] {
+      margin-top: 3px;
+      accent-color: var(--accent);
+    }
+    .onboarding-checklist label {
+      flex: 1;
+      font-size: 0.9375rem;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .onboarding-checklist .hint {
+      display: block;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .onboarding-question {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .onboarding-question:first-child {
+      padding-top: 0;
+    }
+    .onboarding-question:last-child {
+      border-bottom: none;
+    }
+    .onboarding-question label {
+      display: block;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .onboarding-question input,
+    .onboarding-question textarea,
+    .onboarding-question select {
+      width: 100%;
+      font-family: var(--sans);
+      font-size: 0.9375rem;
+      color: var(--text);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 12px;
+      outline: none;
+    }
+    .onboarding-question textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+    .assets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .asset-card {
+      padding: 20px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .asset-card:hover {
+      border-color: rgba(201, 162, 39, 0.4);
+    }
+    .asset-card .icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .asset-card h4 {
+      margin: 0 0 8px;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .asset-card p {
+      margin: 0 0 12px;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+    .asset-card .btn {
+      padding: 8px 16px;
+      font-size: 0.875rem;
+    }
+    .onboarding-loading {
+      text-align: center;
+      padding: 80px 24px;
+      color: var(--text-muted);
+    }
+    .user-badge {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 50;
+    }
+    .contract-pdf-wrap {
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="onboarding-page">
+    <div id="user-badge" class="user-badge" style="display: none;"></div>
+
+    <div id="onboarding-content" style="display: none;">
+      <div class="onboarding-header">
+        <h1>Welcome to SN Web Design</h1>
+        <p>Complete these steps to get set up with invoicing, contracts, and your project assets.</p>
+      </div>
+
+      <div class="onboarding-steps">
+        <div class="onboarding-step-dot" data-step="1" id="dot-1"></div>
+        <div class="onboarding-step-dot" data-step="2" id="dot-2"></div>
+        <div class="onboarding-step-dot" data-step="3" id="dot-3"></div>
+      </div>
+
+      <div class="onboarding-card">
+        <!-- Step 1: Invoicing & Payments -->
+        <div id="step-1" class="onboarding-step">
+          <h2>Invoicing & Payments</h2>
+          <p class="step-desc">Review how we handle invoicing and payments for your project.</p>
+          <ul class="onboarding-checklist">
+            <li>
+              <input type="checkbox" id="inv-1" />
+              <label for="inv-1">
+                I understand invoices will be sent via email
+                <span class="hint">Payment terms are typically Net 15 or Net 30 unless otherwise agreed.</span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="inv-2" />
+              <label for="inv-2">
+                I will add my billing contact and payment method
+                <span class="hint">We accept ACH, wire, and major credit cards.</span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="inv-3" />
+              <label for="inv-3">
+                I understand milestone-based billing for projects
+                <span class="hint">Deposits and progress payments are outlined in your proposal.</span>
+              </label>
+            </li>
+          </ul>
+          <div class="onboarding-actions">
+            <span></span>
+            <button type="button" class="btn btn-primary" onclick="goToStep(2)">Continue</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Contract Review & Sign -->
+        <div id="step-2" class="onboarding-step" style="display: none;">
+          <h2>Your Service Agreement</h2>
+          <p class="step-desc">Please review your contract below and sign to confirm agreement.</p>
+          <div id="contract-container">
+            <div id="contract-loading" class="onboarding-loading" style="padding: 32px;">
+              <p>Loading your contract…</p>
+            </div>
+            <div id="contract-view" style="display: none;">
+              <div class="contract-pdf-wrap">
+                <iframe id="contract-iframe" title="Your contract" style="width:100%;height:400px;border:1px solid var(--border);border-radius:var(--radius);"></iframe>
+                <a id="contract-download" href="#" target="_blank" rel="noopener" class="btn btn-secondary" style="margin-top:12px;display:inline-block;">Download contract</a>
+              </div>
+              <div class="onboarding-question" style="margin-top:24px;">
+                <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;">
+                  <input type="checkbox" id="contract-agree" style="margin-top:4px;accent-color:var(--accent);" />
+                  <span>I have read and agree to the terms of this service agreement and project scope.</span>
+                </label>
+              </div>
+              <button type="button" class="btn btn-primary" id="contract-sign-btn" disabled style="margin-top:16px;">Sign Contract</button>
+              <p id="contract-signed-msg" style="display:none;margin-top:16px;color:var(--accent);font-weight:500;">✓ Contract signed on <span id="contract-signed-date"></span></p>
+            </div>
+            <div id="contract-none" style="display: none;">
+              <p class="step-desc">Your contract is being prepared. Please contact us if you need access, or continue to the next step.</p>
+            </div>
+          </div>
+          <div class="onboarding-actions" style="margin-top: 24px;">
+            <button type="button" class="btn btn-secondary" onclick="goToStep(1)">Back</button>
+            <button type="button" class="btn btn-primary" id="step2-continue" onclick="goToStep(3)">Continue</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Access Assets -->
+        <div id="step-3" class="onboarding-step" style="display: none;">
+          <h2>Access Your Assets</h2>
+          <p class="step-desc">Your project assets, files, and credentials are available here. Bookmark this page for easy access.</p>
+          <div class="assets-grid">
+            <div class="asset-card">
+              <div class="icon">📁</div>
+              <h4>Project Files</h4>
+              <p>Design files, source code, and deliverables</p>
+              <a href="#" class="btn btn-primary">View Files</a>
+            </div>
+            <div class="asset-card">
+              <div class="icon">🔐</div>
+              <h4>Credentials</h4>
+              <p>Hosting, domains, and login info</p>
+              <a href="#" class="btn btn-primary">Access Vault</a>
+            </div>
+            <div class="asset-card">
+              <div class="icon">📄</div>
+              <h4>Invoices</h4>
+              <p>View and pay invoices</p>
+              <a href="#" class="btn btn-primary">View Invoices</a>
+            </div>
+            <div class="asset-card">
+              <div class="icon">📋</div>
+              <h4>Contracts</h4>
+              <p>Signed agreements and SOWs</p>
+              <a href="#" class="btn btn-primary">View Contracts</a>
+            </div>
+          </div>
+          <div class="onboarding-actions" style="margin-top: 40px;">
+            <button type="button" class="btn btn-secondary" onclick="goToStep(2)">Back</button>
+            <button type="button" class="btn btn-primary" id="complete-onboarding">Complete Onboarding</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="onboarding-loading" class="onboarding-loading">
+      <p>Loading…</p>
+    </div>
+  </div>
+
+  <script>
+    (async function() {
+      const loadingEl = document.getElementById('onboarding-loading');
+      const contentEl = document.getElementById('onboarding-content');
+
+      try {
+        const res = await fetch('/api/config');
+        const { clerkPublishableKey, clerkFrontendApi } = await res.json();
+        if (!clerkPublishableKey) {
+          loadingEl.innerHTML = '<p>Clerk is not configured. <a href="client-login.html">Go to login</a></p>';
+          return;
+        }
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        script.setAttribute('data-clerk-publishable-key', clerkPublishableKey);
+        script.src = clerkFrontendApi
+          ? 'https://' + clerkFrontendApi.replace(/^https?:\/\//, '') + '/npm/@clerk/clerk-js@5/dist/clerk.browser.js'
+          : 'https://clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js';
+        script.type = 'text/javascript';
+        document.head.appendChild(script);
+
+        await new Promise(function(resolve) { script.onload = resolve; });
+
+        await window.Clerk.load();
+        if (!window.Clerk.isSignedIn) {
+          window.location.href = 'client-login.html?redirect=client-onboarding.html';
+          return;
+        }
+
+        loadingEl.style.display = 'none';
+        contentEl.style.display = 'block';
+
+        document.getElementById('dot-1').classList.add('active');
+
+        const userButtonDiv = document.getElementById('user-badge');
+        userButtonDiv.style.display = 'block';
+        window.Clerk.mountUserButton(userButtonDiv);
+      } catch (err) {
+        console.error(err);
+        loadingEl.innerHTML = '<p>Unable to load. <a href="client-login.html">Try logging in again</a>.</p>';
+      }
+    })();
+
+    let currentStep = 1;
+    let contractData = null;
+
+    function goToStep(step) {
+      document.getElementById('step-' + currentStep).style.display = 'none';
+      document.getElementById('step-' + step).style.display = 'block';
+      document.querySelectorAll('.onboarding-step-dot').forEach(function(dot, i) {
+        dot.classList.remove('active', 'completed');
+        if (i + 1 < step) dot.classList.add('completed');
+        else if (i + 1 === step) dot.classList.add('active');
+      });
+      currentStep = step;
+      if (step === 2) loadContract();
+    }
+
+    async function loadContract() {
+      const loadingEl = document.getElementById('contract-loading');
+      const viewEl = document.getElementById('contract-view');
+      const noneEl = document.getElementById('contract-none');
+      loadingEl.style.display = 'block';
+      viewEl.style.display = 'none';
+      noneEl.style.display = 'none';
+      try {
+        const token = await window.Clerk.session.getToken();
+        const res = await fetch('/api/contract', { headers: { Authorization: 'Bearer ' + token } });
+        const data = await res.json();
+        loadingEl.style.display = 'none';
+        if (data.ok && data.url) {
+          contractData = data;
+          viewEl.style.display = 'block';
+          document.getElementById('contract-iframe').src = data.url;
+          document.getElementById('contract-download').href = data.url;
+          document.getElementById('contract-download').download = data.filename || 'contract.pdf';
+          if (data.signedAt) {
+            document.getElementById('contract-agree').checked = true;
+            document.getElementById('contract-agree').disabled = true;
+            document.getElementById('contract-sign-btn').style.display = 'none';
+            document.getElementById('contract-signed-msg').style.display = 'block';
+            document.getElementById('contract-signed-date').textContent = new Date(data.signedAt).toLocaleDateString();
+            document.getElementById('step2-continue').disabled = false;
+          } else {
+            document.getElementById('contract-sign-btn').style.display = 'inline-block';
+            document.getElementById('contract-signed-msg').style.display = 'none';
+            document.getElementById('step2-continue').disabled = true;
+          }
+        } else {
+          noneEl.style.display = 'block';
+          document.getElementById('step2-continue').disabled = false;
+        }
+      } catch (err) {
+        console.error(err);
+        loadingEl.style.display = 'none';
+        noneEl.style.display = 'block';
+        document.getElementById('step2-continue').disabled = false;
+      }
+    }
+
+    document.getElementById('contract-agree').addEventListener('change', function() {
+      document.getElementById('contract-sign-btn').disabled = !this.checked;
+    });
+
+    document.getElementById('contract-sign-btn').addEventListener('click', async function() {
+      const btn = this;
+      btn.disabled = true;
+      btn.textContent = 'Signing…';
+      try {
+        const token = await window.Clerk.session.getToken();
+        const res = await fetch('/api/contract/sign', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+        });
+        const data = await res.json();
+        if (data.ok) {
+          document.getElementById('contract-sign-btn').style.display = 'none';
+          document.getElementById('contract-signed-msg').style.display = 'block';
+          document.getElementById('contract-signed-date').textContent = new Date(data.signedAt).toLocaleDateString();
+          document.getElementById('contract-agree').disabled = true;
+          document.getElementById('step2-continue').disabled = false;
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Sign Contract';
+          alert(data.error || 'Signing failed');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Sign Contract';
+        alert('Signing failed');
+      }
+    });
+
+    document.getElementById('complete-onboarding').addEventListener('click', function() {
+      localStorage.setItem('sn_client_onboarding_complete', 'true');
+      window.location.href = 'client-dashboard.html';
+    });
+  </script>
+</body>
+</html>
