@@ -17,7 +17,7 @@ Open [http://localhost:3000](http://localhost:3000). Contracts and uploads are s
 
 1. Push this repo to GitHub (see below).
 2. In [Vercel](https://vercel.com) → **Add New** → **Project** → import the repository.
-3. **Framework preset:** Other (default). No build command required; `vercel.json` routes traffic to the Node serverless entry.
+3. **Framework preset:** Other (default). No build command required. **HTML, CSS, and images** must live in `public/` — Vercel serves them from the CDN. **Express** only handles `/api/*` via `api/[[...slug]].js` (Vercel does not use `express.static()` for production assets; see [Express on Vercel](https://vercel.com/docs/frameworks/backend/express)).
 4. **Environment variables:** copy from `.env.example` and set every value you use in production, including:
    - **Clerk:** `CLERK_SECRET_KEY`, `CLERK_PUBLISHABLE_KEY`, `OWNER_CLERK_USER_ID`
    - **Email:** `SMTP_*` fields if you use the contact / brief forms
@@ -51,9 +51,7 @@ Replace `YOUR_USER/YOUR_REPO` with your account and repository name.
 
 ## Project layout
 
-- HTML pages at the repo root (`index.html`, `blog.html`, etc.)
-- **`public/`** — CSS and images (`includeFiles` in `vercel.json` bundles them into the serverless output)
-- **Root `*.html`** — also listed in `includeFiles` so routes like `/portfolio.html`, `/blog.html`, and `/admin.html` exist in production (the catch-all rewrite sends every path to Express; those files must be in the function bundle)
-- `server.js` — Express app (API + static: `public/` first, then repo root)
-- `api/index.js` — Vercel serverless entry; re-exports the Express app
-- `lib/store.js` — file or KV persistence for contracts / signatures
+- **`public/`** — All pages (`*.html`), `styles.css`, and `assets/` (Vercel CDN + local `express.static` for `npm run dev`)
+- `server.js` — Express app: JSON APIs under `/api/*`, and (locally only) static for `public/` and `/uploads`
+- **`api/[[...slug]].js`** — Vercel serverless entry; re-exports the Express app so `/api/config`, `/api/send-email`, nested paths, etc. all reach the same handler
+- `lib/store.js` — file or Redis persistence for contracts / signatures

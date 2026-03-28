@@ -14,7 +14,11 @@ const PORT = process.env.PORT || 3000;
 /** Vercel lambdas use a read-only filesystem; mkdir/write outside /tmp throws at boot. */
 const IS_VERCEL = process.env.VERCEL === '1';
 
-const UPLOADS_DIR = path.join(__dirname, 'uploads', 'contracts');
+/** Project root (where server.js lives). Pages and static UI must live in public/ on Vercel (CDN); express.static there is ignored in prod but keeps local dev working. */
+const PROJECT_ROOT = __dirname;
+const PUBLIC_DIR = path.join(PROJECT_ROOT, 'public');
+
+const UPLOADS_DIR = path.join(PROJECT_ROOT, 'uploads', 'contracts');
 
 function ensureLocalUploadsDir() {
   if (IS_VERCEL || store.useRedis()) return;
@@ -23,24 +27,11 @@ function ensureLocalUploadsDir() {
   }
 }
 
-const DATA_DIR = path.join(__dirname, 'data');
+const DATA_DIR = path.join(PROJECT_ROOT, 'data');
 if (!IS_VERCEL && !store.useRedis() && !fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
 }
 ensureLocalUploadsDir();
-
-function findStaticRoot() {
-  let dir = __dirname;
-  for (let i = 0; i < 8; i++) {
-    if (fs.existsSync(path.join(dir, 'index.html'))) return dir;
-    const parent = path.dirname(dir);
-    if (parent === dir) break;
-    dir = parent;
-  }
-  return __dirname;
-}
-
-const STATIC_ROOT = findStaticRoot();
 
 function contractPublicUrl(contract) {
   if (!contract || !contract.path) return null;
@@ -109,11 +100,10 @@ function uploadContractMiddleware(req, res, next) {
 
 app.use(cors());
 app.use(express.json());
-const PUBLIC_ROOT = path.join(STATIC_ROOT, 'public');
-if (fs.existsSync(PUBLIC_ROOT)) {
-  app.use(express.static(PUBLIC_ROOT));
+if (fs.existsSync(PUBLIC_DIR)) {
+  app.use(express.static(PUBLIC_DIR));
 }
-app.use(express.static(STATIC_ROOT));
+app.use('/uploads', express.static(path.join(PROJECT_ROOT, 'uploads')));
 
 app.get('/api/config', (req, res) => {
   const clerkPublishableKey = process.env.CLERK_PUBLISHABLE_KEY ||
