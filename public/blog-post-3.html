@@ -13,20 +13,22 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <nav class="nav header-nav-left">
-        <a href="index.html#who-we-are">Who We Are</a>
-        <a href="index.html#philosophy">Our Approach</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#why-us">Why Us</a>
-        <a href="blog.html">Blog</a>
-      </nav>
       <a href="index.html" class="logo" aria-label="SN Web Design — Home">
         <img src="assets/logo.png" alt="SN Web Design" />
       </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html#who-we-are">Who We Are</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="portfolio.html">Portfolio</a>
+      </nav>
       <div class="header-actions">
-        <a href="portfolio.html" class="nav-link-header">Portfolio</a>
-        <a href="client-login.html" class="nav-link-header">Client Login</a>
-        <a href="start.html" class="btn btn-primary">Start Your Project</a>
+        <a href="blog.html" class="nav-link-header">Blog</a>
+        <a href="index.html#contact" class="btn btn-primary">Let's Talk</a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
@@ -41,7 +43,7 @@
           <p class="blog-post-subtitle">Learn the basics of search engine optimization and how to improve your website's visibility in search results.</p>
         </div>
 
-        <div class="blog-post-content prose">
+        <div class="blog-post-content">
           <p>Search Engine Optimization (SEO) is the practice of improving your website so it ranks higher in search engine results pages (SERPs). When done correctly, SEO drives organic traffic to your site, increases visibility, and helps potential customers find you.</p>
 
           <h2>Why SEO Matters</h2>
@@ -115,28 +117,47 @@
             <li>Build quality backlinks through partnerships and content</li>
             <li>Monitor and adjust based on data</li>
           </ol>
-          <p>Need help with your SEO strategy? <a href="start.html">SN Web Design</a> offers comprehensive SEO audits and optimization services to help your site rank higher.</p>
+          <p>Need help with your SEO strategy? SN Web Design offers comprehensive SEO audits and optimization services to help your site rank higher.</p>
         </div>
       </div>
     </article>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <a href="index.html" class="logo logo-footer" aria-label="SN Web Design — Home">
-        <img src="assets/logo.png" alt="SN Web Design" />
-      </a>
-      <p class="footer-tagline">Web Design — Digital experiences that engage, convert, and endure.</p>
-      <nav class="footer-nav">
-        <a href="index.html#who-we-are">Who We Are</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="blog.html">Blog</a>
-      </nav>
-    </div>
-    <div class="container footer-copyright">
-      <p>&copy; 2026 SN Web Design. All rights reserved.</p>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="logo logo-footer" aria-label="SN Web Design — Home">
+            <img src="assets/logo.png" alt="SN Web Design" />
+          </a>
+          <p class="footer-tagline">
+            Web design — digital experiences that engage, convert, and endure.
+          </p>
+        </div>
+        <div class="footer-links">
+          <div>
+            <h4>Explore</h4>
+            <nav class="footer-nav">
+              <a href="portfolio.html">Portfolio</a>
+              <a href="blog.html">Blog</a>
+              <a href="index.html#services">Services</a>
+              <a href="index.html#pricing">Pricing</a>
+            </nav>
+          </div>
+          <div>
+            <h4>Get In Touch</h4>
+            <nav class="footer-nav">
+              <a href="mailto:snwebdesignco@gmail.com">snwebdesignco@gmail.com</a>
+              <a href="index.html#contact">Start a Project</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>© 2026 SN Web Design. All rights reserved.</p>
+      </div>
     </div>
   </footer>
+<script defer src="script.js"></script>
 </body>
 </html>

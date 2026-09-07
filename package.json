@@ -1,7 +1,7 @@
 {
   "name": "sn1",
   "version": "1.0.0",
-  "description": "SN Web Design marketing site, client portal, and Express API",
+  "description": "SN Web Design showcase site and Express server",
   "main": "server.js",
   "scripts": {
     "dev": "node server.js",
@@ -16,13 +16,7 @@
     "node": "20.x"
   },
   "dependencies": {
-    "@clerk/backend": "^3.2.2",
-    "@upstash/redis": "^1.35.0",
-    "@vercel/blob": "^0.27.0",
-    "cors": "^2.8.6",
     "dotenv": "^16.4.5",
-    "express": "^5.2.1",
-    "multer": "^2.1.1",
-    "nodemailer": "^8.0.1"
+    "express": "^5.2.1"
   }
 }

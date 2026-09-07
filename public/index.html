@@ -3,30 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SN Web Design — Digital Experiences Designed to Engage, Convert, and Endure</title>
+  <meta name="description" content="SN Web Design crafts custom, high-performing websites that engage, convert, and endure. Web design, e-commerce, and CMS solutions for modern businesses." />
+  <title>SN Web Design — We Build Your Digital Future</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="dot-grid.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <nav class="nav header-nav-left">
-        <a href="#who-we-are">Who We Are</a>
-        <a href="#philosophy">Approach</a>
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#why-us">Why Us</a>
-      </nav>
       <a href="/" class="logo" aria-label="SN Web Design — Home">
         <img src="assets/logo.png" alt="SN Web Design" />
       </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#who-we-are">Who We Are</a>
+        <a href="#approach">Approach</a>
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#why-us">Why SN</a>
+      </nav>
       <div class="header-actions">
         <a href="portfolio.html" class="nav-link-header">Portfolio</a>
-        <a href="client-login.html" class="nav-link-header">Client Login</a>
-        <a href="start.html" class="btn btn-primary">Start Your Project</a>
+        <a href="#contact" class="btn btn-primary">Let's Talk</a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
@@ -35,11 +37,76 @@
     <!-- Hero -->
     <section class="hero">
       <div class="container hero-inner">
-        <p class="hero-subtitle">Digital Experiences Designed to Engage, Convert, and Endure.</p>
-        <h1 class="hero-title">We Don’t Just Build Websites.<br />We Build Your Digital Future.</h1>
-        <p class="hero-desc">At SN, we blend aesthetic precision with technical robustness to create websites that tell your story and grow your business.</p>
-        <div class="hero-actions">
-          <a href="start.html" class="btn btn-primary btn-lg">Start Your Project</a>
+        <h1 class="hero-title reveal" data-delay="1">
+          We Don't Just Build Websites.<br />
+          <em>We Build Your Digital Future.</em>
+        </h1>
+        <p class="hero-desc reveal" data-delay="2">
+          At SN, we blend aesthetic precision with technical robustness to create
+          websites that tell your story and grow your business.
+        </p>
+        <div class="hero-actions reveal" data-delay="3">
+          <a href="portfolio.html" class="btn btn-primary btn-lg">See Our Work</a>
+          <a href="#services" class="btn btn-ghost btn-lg">Explore Services</a>
+        </div>
+
+        <div class="hero-visual reveal" data-delay="4">
+          <div class="hero-visual-inner">
+            <div class="mockup">
+              <div class="mockup-bar">
+                <span class="mk-circle"></span>
+                <span class="mk-circle"></span>
+                <span class="mk-circle"></span>
+                <span class="mk-addr">snwebdesign.co</span>
+              </div>
+              <div class="mockup-body">
+                <div>
+                  <h2 class="mk-ui-title">Your Brand, <em>Elevated.</em></h2>
+                  <p class="mk-ui-sub">A custom site designed to convert visitors into customers.</p>
+                  <div class="mk-line" style="width:100%"></div>
+                  <div class="mk-line short"></div>
+                  <div class="mk-line" style="width:82%"></div>
+                  <div style="margin-top:22px">
+                    <span class="mk-button">Get Started</span>
+                  </div>
+                </div>
+                <div class="mk-panel">
+                  <p class="mk-panel-title">Project Health</p>
+                  <div class="mk-card-item">
+                    <span class="mk-ico gold">✦</span>
+                    <span class="mk-txt">
+                      <span class="mk-name">Conversion</span>
+                      <span class="mk-meta">Up 48% this quarter</span>
+                    </span>
+                    <span class="mk-trend">+48%</span>
+                  </div>
+                  <div class="mk-card-item">
+                    <span class="mk-ico violet">⚡</span>
+                    <span class="mk-txt">
+                      <span class="mk-name">Load Speed</span>
+                      <span class="mk-meta">0.8s Lighthouse</span>
+                    </span>
+                  </div>
+                  <div class="mk-card-item">
+                    <span class="mk-ico teal">✓</span>
+                    <span class="mk-txt">
+                      <span class="mk-name">SEO Score</span>
+                      <span class="mk-meta">100 / 100</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span class="float-chip fc-2">⚡ <b>Blazing</b> fast</span>
+            <span class="float-chip fc-3">🎨 Designed to <b>convert</b></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="marquee">
+        <div class="marquee-track">
+          <span>Web Design</span><span>E-Commerce</span><span>Branding</span><span>SEO</span><span>UX / UI</span>
+          <span>Web Design</span><span>E-Commerce</span><span>Branding</span><span>SEO</span><span>UX / UI</span>
         </div>
       </div>
     </section>
@@ -48,57 +115,92 @@
     <section id="who-we-are" class="section section-alt">
       <div class="container">
         <div class="who-we-are-grid">
-          <div class="who-we-are-content">
-            <h2 class="section-heading">Who We Are</h2>
-            <p class="section-tagline">Intuitive UX &amp; high-end aesthetics.</p>
+          <div class="who-we-are-content reveal">
+            <p class="section-tagline">Who We Are</p>
+            <h2 class="section-heading">Your website is your <em>strongest</em> competitive advantage.</h2>
             <div class="prose">
-              <p>In a saturated market, your website isn’t just a URL; it’s your strongest competitive advantage. We specialize in the &ldquo;sweet spot&rdquo; of web design: the intersection of intuitive UX and high-end aesthetics.</p>
-              <p>From Day 1 startups to evolving enterprises, we build scalable, secure solutions designed with one thing in mind: hitting your goals.</p>
+              <p class="lead">
+                In a saturated market, your website isn't just a URL — it's the first
+                impression that decides whether prospects trust you.
+              </p>
+              <p>
+                We specialize in the "sweet spot" of web design: the intersection of
+                intuitive UX and high-end aesthetics. From day-one startups to evolving
+                enterprises, we build scalable, secure solutions designed with one thing
+                in mind — hitting your goals.
+              </p>
+            </div>
+            <div class="stat-row">
+              <div class="stat">
+                <b><span data-count="120" data-suffix="+">0</span></b>
+                <span>Projects Delivered</span>
+              </div>
+              <div class="stat">
+                <b><span data-count="98" data-suffix="%">0</span></b>
+                <span>Client Satisfaction</span>
+              </div>
+              <div class="stat">
+                <b><span data-count="7" data-suffix="+">0</span></b>
+                <span>Years of Craft</span>
+              </div>
             </div>
           </div>
-          <div class="who-we-are-image-box" id="who-we-are-image-box">
-            <!-- Add your image here: <img src="assets/your-image.jpg" alt="Description" /> -->
+          <div class="who-we-are-visual reveal" data-delay="1">
+            <div class="dot-grid-host" id="who-we-are-image-box"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- The SN Approach -->
-    <section id="philosophy" class="section">
+    <!-- Approach -->
+    <section id="approach" class="section">
       <div class="container">
-        <h2 class="section-heading">Our Design Philosophy</h2>
-        <p class="section-tagline">The SN Approach</p>
+        <div class="section-head-center reveal">
+          <h2 class="section-heading">Our Design <em>Philosophy</em></h2>
+          <p class="section-desc">Two principles guide everything we build — the S and the N that define who we are.</p>
+        </div>
         <div class="approach-grid">
-          <article class="approach-card">
+          <article class="approach-card reveal">
             <span class="approach-letter" aria-hidden="true">S</span>
-            <h3>Strategic User Experience (UX)</h3>
-            <p>We don’t believe in guessing. We build based on actual data and how people really use the web. It’s about keeping people on your site longer and actually getting them to take action.</p>
+            <h3>Strategic User Experience</h3>
+            <p>
+              We don't believe in guessing. We build based on actual data and how people
+              really use the web — keeping visitors engaged and actually getting them to act.
+            </p>
           </article>
-          <article class="approach-card">
+          <article class="approach-card reveal" data-delay="1">
             <span class="approach-letter" aria-hidden="true">N</span>
             <h3>Next-Gen Technology</h3>
-            <p>The internet is always changing. We build on modern frameworks that are always up to date, mobile-responsive, and SEO-friendly from day one. We keep your website ready so your digital presence stays ahead of the curve.</p>
+            <p>
+              The internet never stands still. We build on modern frameworks that are always
+              up to date, mobile-responsive, and SEO-friendly — so you stay ahead of the curve.
+            </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Core Services -->
+    <!-- Services -->
     <section id="services" class="section section-alt">
       <div class="container">
-        <h2 class="section-heading">Core Services</h2>
+        <div class="section-head-center reveal">
+          <h2 class="section-heading">Core <em>Services</em></h2>
+          <p class="section-desc">Everything you need to launch, grow, and manage a website that works as hard as you do.</p>
+        </div>
         <div class="services-grid">
-          <article class="service-card">
+          <article class="service-card reveal">
+            <span class="service-ico">🎨</span>
             <span class="service-num">01</span>
             <h3>Custom Web Design &amp; Development</h3>
-            <p>Forget about basic templates. We build custom websites that reflect your unique brand identity.</p>
+            <p>Forget basic templates. We build custom websites that reflect your unique brand identity.</p>
             <ul>
-              <li>Responsive layouts for Mobile, Tablet, and Desktop</li>
+              <li>Responsive layouts for mobile, tablet, and desktop</li>
               <li>Custom interactions and animations</li>
               <li>Pixel-perfect UI implementation</li>
             </ul>
           </article>
-          <article class="service-card">
+          <article class="service-card reveal" data-delay="1">
+            <span class="service-ico">🛒</span>
             <span class="service-num">02</span>
             <h3>E-Commerce Solutions</h3>
             <p>Turn visitors into loyal customers with a seamless shopping experience.</p>
@@ -108,15 +210,27 @@
               <li>User-friendly cart and checkout flows</li>
             </ul>
           </article>
-          <article class="service-card">
+          <article class="service-card reveal">
+            <span class="service-ico">⚙️</span>
             <span class="service-num">03</span>
             <h3>CMS Integration</h3>
-            <p>Take control of your content. We specialize in easy-to-manage Content Management Systems (WordPress, Shopify, Webflow) that let you update your site without touching a line of code.</p>
+            <p>Take control of your content with easy-to-manage systems — no code required.</p>
+            <ul>
+              <li>WordPress, Shopify, and Webflow expertise</li>
+              <li>Self-manageable content structures</li>
+              <li>Training and ongoing support</li>
+            </ul>
           </article>
-          <article class="service-card">
+          <article class="service-card reveal" data-delay="1">
+            <span class="service-ico">☁️</span>
             <span class="service-num">04</span>
             <h3>Affordable Web Hosting</h3>
-            <p>We offer reliable, secure web hosting at prices that won’t break the bank. Keep your site fast and online without the enterprise price tag.</p>
+            <p>Reliable, secure hosting that keeps your site fast and online — without the enterprise price tag.</p>
+            <ul>
+              <li>Fast, secure, and monitored servers</li>
+              <li>Automatic backups and updates</li>
+              <li>Priority support from our team</li>
+            </ul>
           </article>
         </div>
       </div>
@@ -125,99 +239,182 @@
     <!-- Pricing -->
     <section id="pricing" class="section">
       <div class="container">
-        <h2 class="section-heading">Pricing</h2>
+        <div class="section-head-center reveal">
+          <h2 class="section-heading">Simple, Transparent <em>Pricing</em></h2>
+          <p class="section-desc">No surprises. Pick the plan that fits your stage, and we'll handle the rest.</p>
+        </div>
         <div class="pricing-grid">
-          <article class="pricing-card">
+          <article class="pricing-card reveal">
             <h3 class="pricing-name">Gold</h3>
-            <p class="pricing-tagline">The Professional Foundation <span class="pricing-sep">|</span> Starting at $100</p>
-            <p class="pricing-desc">A clean, credible site for brands that need to be found and understood. It’s about clarity and establishing your presence.</p>
+            <p class="pricing-tagline">The Professional Foundation</p>
+            <p class="pricing-price"><span class="cur">$</span><span class="amt">100</span> <span class="unit">starting</span></p>
+            <p class="pricing-desc">A clean, credible site for brands that need to be found and understood.</p>
             <ul class="pricing-list">
-              <li>Up to 5 Pages (Home, About, Services, Contact, etc.)</li>
-              <li>Fully Responsive – It looks right on mobile, tablet, and desktop.</li>
-              <li>Foundational SEO – Built so people can actually find you.</li>
+              <li>Up to 5 pages (Home, About, Services, Contact, etc.)</li>
+              <li>Fully responsive on mobile, tablet, and desktop</li>
+              <li>Foundational SEO so people can actually find you</li>
             </ul>
-            <a href="start.html" class="btn btn-primary">Get a Quote</a>
+            <a href="#contact" class="btn btn-ghost">Get a Quote</a>
           </article>
-          <article class="pricing-card">
+
+          <article class="pricing-card featured reveal" data-delay="1">
+            <span class="pricing-badge">Most Popular</span>
             <h3 class="pricing-name">Business</h3>
-            <p class="pricing-tagline">Growth &amp; Control <span class="pricing-sep">|</span> Starting at $250</p>
-            <p class="pricing-desc">Designed for growing teams that need more depth, better content management, and tools that work with their existing workflow.</p>
+            <p class="pricing-tagline">Growth &amp; Control</p>
+            <p class="pricing-price"><span class="cur">$</span><span class="amt">250</span> <span class="unit">starting</span></p>
+            <p class="pricing-desc">Designed for growing teams that need more depth and content control.</p>
             <ul class="pricing-list">
-              <li>Custom Admin Dashboard – Manage your site with ease.</li>
-              <li>CMS Integration – Update content without writing a single line of code.</li>
-              <li>Expanded Structure – More pages and richer content layouts.</li>
-              <li>System Integration – We connect the forms and analytics you already use.</li>
+              <li>Custom admin dashboard to manage your site with ease</li>
+              <li>CMS integration — update content without code</li>
+              <li>Expanded structure with richer content layouts</li>
+              <li>System integration for forms and analytics</li>
             </ul>
-            <a href="start.html" class="btn btn-primary">Get a Quote</a>
+            <a href="#contact" class="btn btn-primary">Get a Quote</a>
           </article>
-          <article class="pricing-card">
+
+          <article class="pricing-card reveal" data-delay="2">
             <h3 class="pricing-name">Commerce</h3>
-            <p class="pricing-tagline">Sell online with confidence</p>
-            <p class="pricing-desc">Everything you need to start selling. We focus on a seamless checkout flow and a shopping experience that converts.</p>
+            <p class="pricing-tagline">Sell Online with Confidence</p>
+            <p class="pricing-price"><span class="cur">$</span><span class="amt">Custom</span></p>
+            <p class="pricing-desc">Everything you need to start selling, with a checkout that converts.</p>
             <ul class="pricing-list">
-              <li>Full E-commerce Setup (Shopify or similar stack)</li>
-              <li>Strategic UX – Optimized product catalogs and checkout flows.</li>
-              <li>Payment Integration – Secure guidance on getting your gateway live.</li>
-              <li>Ready to Launch – The essentials to start taking orders confidently.</li>
+              <li>Full e-commerce setup (Shopify or similar stack)</li>
+              <li>Strategic UX for product catalogs and checkout</li>
+              <li>Secure payment gateway go-live guidance</li>
+              <li>Ready to launch and start taking orders</li>
             </ul>
-            <a href="start.html" class="btn btn-primary">Get a Quote</a>
+            <a href="#contact" class="btn btn-ghost">Get a Quote</a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Why Partner with SN -->
+    <!-- Why SN -->
     <section id="why-us" class="section section-alt">
       <div class="container">
-        <h2 class="section-heading">Why Partner with SN?</h2>
+        <div class="section-head-center reveal">
+          <h2 class="section-heading">Why Partner with <em>SN?</em></h2>
+          <p class="section-desc">We treat your project like our own — because your growth is our reputation.</p>
+        </div>
         <div class="why-grid">
-          <div class="why-card">
+          <div class="why-card reveal">
+            <span class="w-ico">🤝</span>
             <h3>Collaborative Process</h3>
-            <p>You are involved at every stage, from start to end. We will be collaborating through every step of the process.</p>
+            <p>You're involved at every stage. We collaborate through every step of the journey, from first sketch to launch day.</p>
           </div>
-          <div class="why-card">
+          <div class="why-card reveal" data-delay="1">
+            <span class="w-ico">🚀</span>
             <h3>Performance First</h3>
-            <p>A beautiful site is useless if it doesn’t load. We prioritize speed and performance scores to keep Google (and your users) happy.</p>
+            <p>A beautiful site is useless if it doesn't load. We prioritize speed and performance so Google — and your users — stay happy.</p>
           </div>
-          <div class="why-card">
+          <div class="why-card reveal" data-delay="2">
+            <span class="w-ico">🛡️</span>
             <h3>Post-Launch Support</h3>
-            <p>Our relationship doesn’t end at &ldquo;Go Live.&rdquo; We offer multiple maintenance services to make sure your site is always secure and up-to-date.</p>
+            <p>Our relationship doesn't end at "Go Live." We offer maintenance that keeps your site secure and up to date.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head-center reveal">
+          <h2 class="section-heading">What Our Clients <em>Say</em></h2>
+          <p class="section-desc">Real words from people we've had the pleasure of working with.</p>
+        </div>
+        <div class="testimonial-grid">
+          <article class="testimonial-card reveal">
+            <div class="stars">★★★★★</div>
+            <blockquote>"SN completely transformed our online presence. The new site pays for itself — our enquiries doubled in the first month."</blockquote>
+            <div class="testimonial-author">
+              <span class="avatar">JM</span>
+              <div>
+                <div class="name">Jamie Morgan</div>
+                <div class="role">Founder, NorthPeak Consulting</div>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card reveal" data-delay="1">
+            <div class="stars">★★★★★</div>
+            <blockquote>"They didn't just build a site — they acted as a partner. The process was collaborative, transparent, and genuinely enjoyable."</blockquote>
+            <div class="testimonial-author">
+              <span class="avatar">AR</span>
+              <div>
+                <div class="name">Aisha Rahman</div>
+                <div class="role">Marketing Director, Bloom Retail</div>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card reveal" data-delay="2">
+            <div class="stars">★★★★★</div>
+            <blockquote>"Fast, responsive, and ridiculously talented. Our store's conversion rate jumped 48% after the redesign."</blockquote>
+            <div class="testimonial-author">
+              <span class="avatar">DC</span>
+              <div>
+                <div class="name">Daniel Chen</div>
+                <div class="role">Owner, Chen &amp; Co. Merch</div>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- Final CTA -->
     <section id="contact" class="section cta-section">
-      <div class="container cta-inner">
-        <h2 class="cta-title">Let’s Build Something Great Together.</h2>
-        <p class="cta-desc">Ready to elevate your online presence? Tell us about your project, and let’s see how SN Web Design can bring your vision to life.</p>
-        <a href="#" class="btn btn-primary btn-lg">Get a Free Consultation</a>
+      <div class="container">
+        <div class="cta-card reveal">
+          <div class="cta-inner">
+            <h2 class="cta-title">Let's Build Something <em>Great Together.</em></h2>
+            <p class="cta-desc">
+              Ready to elevate your online presence? Tell us about your project, and let's
+              see how SN Web Design can bring your vision to life.
+            </p>
+            <a href="mailto:snwebdesignco@gmail.com" class="btn btn-primary btn-lg">Get a Free Consultation</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <script defer src="dot-grid.js"></script>
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <a href="/" class="logo logo-footer" aria-label="SN Web Design — Home">
-        <img src="assets/logo.png" alt="SN Web Design" />
-      </a>
-      <p class="footer-tagline">Web Design — Digital experiences that engage, convert, and endure.</p>
-      <nav class="footer-nav">
-        <a href="#who-we-are">Who We Are</a>
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
-        <a href="blog.html">Blog</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="client-login.html">Client Login</a>
-        <a href="admin.html">Admin</a>
-      </nav>
-    </div>
-    <div class="container footer-copyright">
-      <p>&copy; 2026 SN Web Design. All rights reserved.</p>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="logo logo-footer" aria-label="SN Web Design — Home">
+            <img src="assets/logo.png" alt="SN Web Design" />
+          </a>
+          <p class="footer-tagline">
+            Web design — digital experiences that engage, convert, and endure.
+          </p>
+        </div>
+        <div class="footer-links">
+          <div>
+            <h4>Explore</h4>
+            <nav class="footer-nav">
+              <a href="portfolio.html">Portfolio</a>
+              <a href="blog.html">Blog</a>
+              <a href="#services">Services</a>
+              <a href="#pricing">Pricing</a>
+            </nav>
+          </div>
+          <div>
+            <h4>Get In Touch</h4>
+            <nav class="footer-nav">
+              <a href="mailto:snwebdesignco@gmail.com">snwebdesignco@gmail.com</a>
+              <a href="#contact">Start a Project</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>© 2026 SN Web Design. All rights reserved.</p>
+      </div>
     </div>
   </footer>
+
+  <script defer src="dot-grid.js"></script>
+  <script defer src="script.js"></script>
 </body>
 </html>

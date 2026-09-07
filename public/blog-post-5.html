@@ -13,20 +13,22 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <nav class="nav header-nav-left">
-        <a href="index.html#who-we-are">Who We Are</a>
-        <a href="index.html#philosophy">Our Approach</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#why-us">Why Us</a>
-        <a href="blog.html">Blog</a>
-      </nav>
       <a href="index.html" class="logo" aria-label="SN Web Design — Home">
         <img src="assets/logo.png" alt="SN Web Design" />
       </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html#who-we-are">Who We Are</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="portfolio.html">Portfolio</a>
+      </nav>
       <div class="header-actions">
-        <a href="portfolio.html" class="nav-link-header">Portfolio</a>
-        <a href="client-login.html" class="nav-link-header">Client Login</a>
-        <a href="start.html" class="btn btn-primary">Start Your Project</a>
+        <a href="blog.html" class="nav-link-header">Blog</a>
+        <a href="index.html#contact" class="btn btn-primary">Let's Talk</a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
@@ -41,7 +43,7 @@
           <p class="blog-post-subtitle">Explore proven strategies to optimize your online store, from checkout flows to product pages that drive sales.</p>
         </div>
 
-        <div class="blog-post-content prose">
+        <div class="blog-post-content">
           <p>E-commerce success isn't just about having products—it's about creating an experience that guides visitors from browsing to buying. With average cart abandonment rates around 70%, there's significant room for improvement in how online stores convert traffic into sales.</p>
 
           <h2>Optimize Your Product Pages</h2>
@@ -128,28 +130,47 @@
           <h2>Key Takeaways</h2>
           <p>Successful e-commerce sites focus on removing friction at every step. From product discovery to checkout completion, every element should guide visitors toward purchase while building trust and confidence.</p>
           <p>Remember: small improvements can lead to significant revenue increases. A 1% increase in conversion rate can mean thousands in additional sales.</p>
-          <p>Ready to optimize your online store? <a href="start.html">SN Web Design</a> specializes in e-commerce solutions that convert. Let's discuss how we can improve your store's performance.</p>
+          <p>Ready to optimize your online store? SN Web Design specializes in e-commerce solutions that convert. Let's discuss how we can improve your store's performance.</p>
         </div>
       </div>
     </article>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <a href="index.html" class="logo logo-footer" aria-label="SN Web Design — Home">
-        <img src="assets/logo.png" alt="SN Web Design" />
-      </a>
-      <p class="footer-tagline">Web Design — Digital experiences that engage, convert, and endure.</p>
-      <nav class="footer-nav">
-        <a href="index.html#who-we-are">Who We Are</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="blog.html">Blog</a>
-      </nav>
-    </div>
-    <div class="container footer-copyright">
-      <p>&copy; 2026 SN Web Design. All rights reserved.</p>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="logo logo-footer" aria-label="SN Web Design — Home">
+            <img src="assets/logo.png" alt="SN Web Design" />
+          </a>
+          <p class="footer-tagline">
+            Web design — digital experiences that engage, convert, and endure.
+          </p>
+        </div>
+        <div class="footer-links">
+          <div>
+            <h4>Explore</h4>
+            <nav class="footer-nav">
+              <a href="portfolio.html">Portfolio</a>
+              <a href="blog.html">Blog</a>
+              <a href="index.html#services">Services</a>
+              <a href="index.html#pricing">Pricing</a>
+            </nav>
+          </div>
+          <div>
+            <h4>Get In Touch</h4>
+            <nav class="footer-nav">
+              <a href="mailto:snwebdesignco@gmail.com">snwebdesignco@gmail.com</a>
+              <a href="index.html#contact">Start a Project</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>© 2026 SN Web Design. All rights reserved.</p>
+      </div>
     </div>
   </footer>
+<script defer src="script.js"></script>
 </body>
 </html>

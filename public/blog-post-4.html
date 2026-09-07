@@ -13,20 +13,22 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <nav class="nav header-nav-left">
-        <a href="index.html#who-we-are">Who We Are</a>
-        <a href="index.html#philosophy">Our Approach</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#why-us">Why Us</a>
-        <a href="blog.html">Blog</a>
-      </nav>
       <a href="index.html" class="logo" aria-label="SN Web Design — Home">
         <img src="assets/logo.png" alt="SN Web Design" />
       </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html#who-we-are">Who We Are</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="portfolio.html">Portfolio</a>
+      </nav>
       <div class="header-actions">
-        <a href="portfolio.html" class="nav-link-header">Portfolio</a>
-        <a href="client-login.html" class="nav-link-header">Client Login</a>
-        <a href="start.html" class="btn btn-primary">Start Your Project</a>
+        <a href="blog.html" class="nav-link-header">Blog</a>
+        <a href="index.html#contact" class="btn btn-primary">Let's Talk</a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
@@ -41,7 +43,7 @@
           <p class="blog-post-subtitle">With mobile traffic dominating web usage, discover why designing for mobile first is crucial for your website's success.</p>
         </div>
 
-        <div class="blog-post-content prose">
+        <div class="blog-post-content">
           <p>Over 60% of web traffic now comes from mobile devices. This shift has fundamentally changed how we approach web design. Mobile-first design isn't just a trend—it's a necessity for any business serious about reaching its audience.</p>
 
           <h2>What Is Mobile-First Design?</h2>
@@ -97,28 +99,47 @@
 
           <h2>The Bottom Line</h2>
           <p>Mobile-first design isn't optional anymore—it's essential. Users expect seamless mobile experiences, and search engines reward sites that provide them. By prioritizing mobile, you're investing in better performance, higher conversions, and improved search visibility.</p>
-          <p>At SN Web Design, we build every site with a mobile-first approach. <a href="start.html">Get in touch</a> to ensure your website delivers exceptional experiences on every device.</p>
+          <p>At SN Web Design, we build every site with a mobile-first approach to ensure your website delivers exceptional experiences on every device.</p>
         </div>
       </div>
     </article>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <a href="index.html" class="logo logo-footer" aria-label="SN Web Design — Home">
-        <img src="assets/logo.png" alt="SN Web Design" />
-      </a>
-      <p class="footer-tagline">Web Design — Digital experiences that engage, convert, and endure.</p>
-      <nav class="footer-nav">
-        <a href="index.html#who-we-are">Who We Are</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="blog.html">Blog</a>
-      </nav>
-    </div>
-    <div class="container footer-copyright">
-      <p>&copy; 2026 SN Web Design. All rights reserved.</p>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="logo logo-footer" aria-label="SN Web Design — Home">
+            <img src="assets/logo.png" alt="SN Web Design" />
+          </a>
+          <p class="footer-tagline">
+            Web design — digital experiences that engage, convert, and endure.
+          </p>
+        </div>
+        <div class="footer-links">
+          <div>
+            <h4>Explore</h4>
+            <nav class="footer-nav">
+              <a href="portfolio.html">Portfolio</a>
+              <a href="blog.html">Blog</a>
+              <a href="index.html#services">Services</a>
+              <a href="index.html#pricing">Pricing</a>
+            </nav>
+          </div>
+          <div>
+            <h4>Get In Touch</h4>
+            <nav class="footer-nav">
+              <a href="mailto:snwebdesignco@gmail.com">snwebdesignco@gmail.com</a>
+              <a href="index.html#contact">Start a Project</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>© 2026 SN Web Design. All rights reserved.</p>
+      </div>
     </div>
   </footer>
+<script defer src="script.js"></script>
 </body>
 </html>

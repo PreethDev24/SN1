@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="SN Web Design blog — insights on web design, development, UX, and digital marketing strategies to grow your online presence." />
-  <meta name="keywords" content="web design blog, web development tips, UX design, digital marketing, website optimization" />
-  <title>Blog — SN Web Design | Web Design & Development Insights</title>
+  <title>Blog — SN Web Design | Web Design &amp; Development Insights</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
@@ -14,20 +13,21 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <nav class="nav header-nav-left">
-        <a href="index.html#who-we-are">Who We Are</a>
-        <a href="index.html#philosophy">Our Approach</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#why-us">Why Us</a>
-        <a href="blog.html">Blog</a>
-      </nav>
       <a href="index.html" class="logo" aria-label="SN Web Design — Home">
         <img src="assets/logo.png" alt="SN Web Design" />
       </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html#who-we-are">Who We Are</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="portfolio.html">Portfolio</a>
+      </nav>
       <div class="header-actions">
-        <a href="portfolio.html" class="nav-link-header">Portfolio</a>
-        <a href="client-login.html" class="nav-link-header">Client Login</a>
-        <a href="start.html" class="btn btn-primary">Start Your Project</a>
+        <a href="index.html#contact" class="btn btn-primary">Let's Talk</a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
@@ -36,24 +36,24 @@
     <!-- Blog Header -->
     <section class="section blog-header">
       <div class="container">
-        <h1 class="section-heading">Blog</h1>
-        <p class="section-tagline">Insights on web design, development, and digital strategy</p>
+        <p class="section-tagline">The Journal</p>
+        <h1 class="section-heading">Insights &amp; <em>Ideas</em></h1>
+        <p class="section-desc" style="max-width:560px;margin:0 auto 0;color:var(--text-muted);font-size:1.1rem;line-height:1.7;">
+          Practical thoughts on design, development, and digital strategy to grow your online presence.
+        </p>
       </div>
     </section>
 
     <!-- Blog Posts -->
-    <section class="section section-alt">
+    <section class="section section-alt" style="padding-top:40px">
       <div class="container">
         <div class="blog-grid">
-          <article class="blog-card">
-            <div class="blog-card-image">
-              <!-- Add image here: <img src="assets/blog/placeholder.jpg" alt="..." /> -->
-            </div>
+          <article class="blog-card reveal">
+            <div class="blog-card-image">🎨</div>
             <div class="blog-card-content">
+              <span class="blog-card-tag">Design</span>
               <time class="blog-date" datetime="2026-02-11">February 11, 2026</time>
-              <h2 class="blog-card-title">
-                <a href="blog-post-1.html">5 Essential Web Design Trends for 2026</a>
-              </h2>
+              <h2 class="blog-card-title"><a href="blog-post-1.html">5 Essential Web Design Trends for 2026</a></h2>
               <p class="blog-card-excerpt">
                 Discover the design trends shaping the web this year, from minimalist interfaces to bold typography and immersive user experiences.
               </p>
@@ -61,31 +61,25 @@
             </div>
           </article>
 
-          <article class="blog-card">
-            <div class="blog-card-image">
-              <!-- Add image here: <img src="assets/blog/placeholder.jpg" alt="..." /> -->
-            </div>
+          <article class="blog-card reveal" data-delay="1">
+            <div class="blog-card-image">⚙️</div>
             <div class="blog-card-content">
+              <span class="blog-card-tag">Development</span>
               <time class="blog-date" datetime="2026-02-05">February 5, 2026</time>
-              <h2 class="blog-card-title">
-                <a href="blog-post-2.html">How to Choose the Right CMS for Your Business</a>
-              </h2>
+              <h2 class="blog-card-title"><a href="blog-post-2.html">How to Choose the Right CMS for Your Business</a></h2>
               <p class="blog-card-excerpt">
-                WordPress, Shopify, Webflow—which content management system fits your needs? We break down the pros and cons of popular platforms.
+                WordPress, Shopify, Webflow — which content management system fits your needs? We break down the pros and cons.
               </p>
               <a href="blog-post-2.html" class="blog-card-link">Read more →</a>
             </div>
           </article>
 
-          <article class="blog-card">
-            <div class="blog-card-image">
-              <!-- Add image here: <img src="assets/blog/placeholder.jpg" alt="..." /> -->
-            </div>
+          <article class="blog-card reveal" data-delay="2">
+            <div class="blog-card-image">📈</div>
             <div class="blog-card-content">
+              <span class="blog-card-tag">SEO</span>
               <time class="blog-date" datetime="2026-01-28">January 28, 2026</time>
-              <h2 class="blog-card-title">
-                <a href="blog-post-3.html">SEO Fundamentals: A Beginner's Guide</a>
-              </h2>
+              <h2 class="blog-card-title"><a href="blog-post-3.html">SEO Fundamentals: A Beginner's Guide</a></h2>
               <p class="blog-card-excerpt">
                 Learn the basics of search engine optimization and how to improve your website's visibility in search results.
               </p>
@@ -93,31 +87,25 @@
             </div>
           </article>
 
-          <article class="blog-card">
-            <div class="blog-card-image">
-              <!-- Add image here: <img src="assets/blog/placeholder.jpg" alt="..." /> -->
-            </div>
+          <article class="blog-card reveal">
+            <div class="blog-card-image">📱</div>
             <div class="blog-card-content">
+              <span class="blog-card-tag">UX</span>
               <time class="blog-date" datetime="2026-01-20">January 20, 2026</time>
-              <h2 class="blog-card-title">
-                <a href="blog-post-4.html">Mobile-First Design: Why It Matters in 2026</a>
-              </h2>
+              <h2 class="blog-card-title"><a href="blog-post-4.html">Mobile-First Design: Why It Matters in 2026</a></h2>
               <p class="blog-card-excerpt">
-                With mobile traffic dominating web usage, discover why designing for mobile first is crucial for your website's success.
+                With mobile traffic dominating web usage, discover why designing for mobile first is crucial for your success.
               </p>
               <a href="blog-post-4.html" class="blog-card-link">Read more →</a>
             </div>
           </article>
 
-          <article class="blog-card">
-            <div class="blog-card-image">
-              <!-- Add image here: <img src="assets/blog/placeholder.jpg" alt="..." /> -->
-            </div>
+          <article class="blog-card reveal" data-delay="1">
+            <div class="blog-card-image">🛒</div>
             <div class="blog-card-content">
+              <span class="blog-card-tag">E-Commerce</span>
               <time class="blog-date" datetime="2026-01-15">January 15, 2026</time>
-              <h2 class="blog-card-title">
-                <a href="blog-post-5.html">E-Commerce Best Practices: Converting Visitors into Customers</a>
-              </h2>
+              <h2 class="blog-card-title"><a href="blog-post-5.html">E-Commerce Best Practices: Converting Visitors into Customers</a></h2>
               <p class="blog-card-excerpt">
                 Explore proven strategies to optimize your online store, from checkout flows to product pages that drive sales.
               </p>
@@ -125,15 +113,12 @@
             </div>
           </article>
 
-          <article class="blog-card">
-            <div class="blog-card-image">
-              <!-- Add image here: <img src="assets/blog/placeholder.jpg" alt="..." /> -->
-            </div>
+          <article class="blog-card reveal" data-delay="2">
+            <div class="blog-card-image">⚡</div>
             <div class="blog-card-content">
+              <span class="blog-card-tag">Performance</span>
               <time class="blog-date" datetime="2026-01-10">January 10, 2026</time>
-              <h2 class="blog-card-title">
-                <a href="blog-post-6.html">Website Performance: Speed Optimization Tips</a>
-              </h2>
+              <h2 class="blog-card-title"><a href="blog-post-6.html">Website Performance: Speed Optimization Tips</a></h2>
               <p class="blog-card-excerpt">
                 Slow websites lose visitors. Learn how to improve page load times and keep your audience engaged.
               </p>
@@ -146,22 +131,41 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <a href="index.html" class="logo logo-footer" aria-label="SN Web Design — Home">
-        <img src="assets/logo.png" alt="SN Web Design" />
-      </a>
-      <p class="footer-tagline">Web Design — Digital experiences that engage, convert, and endure.</p>
-      <nav class="footer-nav">
-        <a href="index.html#who-we-are">Who We Are</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="blog.html">Blog</a>
-        <a href="portfolio.html">Portfolio</a>
-      </nav>
-    </div>
-    <div class="container footer-copyright">
-      <p>&copy; 2026 SN Web Design. All rights reserved.</p>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="logo logo-footer" aria-label="SN Web Design — Home">
+            <img src="assets/logo.png" alt="SN Web Design" />
+          </a>
+          <p class="footer-tagline">
+            Web design — digital experiences that engage, convert, and endure.
+          </p>
+        </div>
+        <div class="footer-links">
+          <div>
+            <h4>Explore</h4>
+            <nav class="footer-nav">
+              <a href="portfolio.html">Portfolio</a>
+              <a href="blog.html">Blog</a>
+              <a href="index.html#services">Services</a>
+              <a href="index.html#pricing">Pricing</a>
+            </nav>
+          </div>
+          <div>
+            <h4>Get In Touch</h4>
+            <nav class="footer-nav">
+              <a href="mailto:snwebdesignco@gmail.com">snwebdesignco@gmail.com</a>
+              <a href="index.html#contact">Start a Project</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>© 2026 SN Web Design. All rights reserved.</p>
+      </div>
     </div>
   </footer>
+
+  <script defer src="script.js"></script>
 </body>
 </html>
